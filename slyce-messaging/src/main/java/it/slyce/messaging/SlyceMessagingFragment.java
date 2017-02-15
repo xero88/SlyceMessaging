@@ -153,6 +153,10 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     }
 
     public void addNewMessages(List<Message> messages) {
+        
+        if(getActivity() == null)
+            return;
+        
         mMessages.addAll(messages);
         new AddNewMessageTask(messages, mMessageItems, mRecyclerAdapter, mRecyclerView, getActivity().getApplicationContext(), customSettings).execute();
     }
